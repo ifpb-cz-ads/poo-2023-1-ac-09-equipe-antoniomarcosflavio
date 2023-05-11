@@ -10,7 +10,7 @@ public class TesteBanco {
         String nome, cpf;
         double valor;
         do {
-            System.out.println("MENU");
+            System.out.println("----===MENU===-----");
             System.out.println("Escolha uma opção:");
             System.out.println("1 - Criar Conta");
             System.out.println("2 - Visualizar Saldo");
@@ -23,6 +23,7 @@ public class TesteBanco {
                     System.out.println("1 - Criar Conta Especial");
                     System.out.println("2 - Criar Conta Poupança");
                     tipoConta = scan.nextInt();
+                    scan.nextLine();
                     switch (tipoConta) {
                         case 1:
                             System.out.println("Digite o nome do titular: ");
@@ -31,8 +32,10 @@ public class TesteBanco {
                             cpf = scan.nextLine();
                             System.out.println("Informe o limite da conta:");
                             valor = scan.nextDouble();
+                            scan.nextLine();
                             System.out.println("Informe o número da conta:");
                             numeroConta = scan.nextInt();
+                            scan.nextLine();
                             conta = new ContaEspecial(numeroConta, new Cliente(nome, cpf), valor);
                             break;
                         case 2:
@@ -42,6 +45,7 @@ public class TesteBanco {
                             cpf = scan.nextLine();
                             System.out.println("Informe o número da conta:");
                             numeroConta = scan.nextInt();
+                            scan.nextLine();
                             conta = new ContaPoupanca(numeroConta, new Cliente(nome, cpf));
                             break;
                         default:
@@ -53,6 +57,7 @@ public class TesteBanco {
                 case 2:
                     System.out.println("Informe o número da conta");
                     numeroConta = scan.nextInt();
+                    scan.nextLine();
                     for (int k = 0; k < lista.size(); k++) {
                         Conta n = lista.get(k);
                         if (n.numero == numeroConta) {
@@ -68,11 +73,13 @@ public class TesteBanco {
                 case 3:
                     System.out.println("Informe o número da conta");
                     numeroConta = scan.nextInt();
+                    scan.nextLine();
                     for (int k = 0; k < lista.size(); k++) {
                         Conta n = lista.get(k);
                         if (n.numero == numeroConta) {
                             System.out.println("Informe o valor do saque");
                             valor = scan.nextDouble();
+                            scan.nextLine();
                             n.sacar(valor);
                             System.out.println("Você sacou: " + valor);
                             System.out.println("O saldo da conta é: " + n.getSaldo());
@@ -87,11 +94,13 @@ public class TesteBanco {
                 case 4:
                     System.out.println("Informe o número da conta");
                     numeroConta = scan.nextInt();
+                    scan.nextLine();
                     for (int k = 0; k < lista.size(); k++) {
                         Conta n = lista.get(k);
                         if (n.numero == numeroConta) {
                             System.out.println("Informe o valor do deposito");
                             valor = scan.nextDouble();
+                            scan.nextLine();
                             n.depositar(valor);
                             System.out.println("Você depositou: " + valor);
                             System.out.println("O saldo da conta é: " + n.getSaldo());
